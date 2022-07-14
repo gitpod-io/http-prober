@@ -1,3 +1,6 @@
+# Image URL to use all building/pushing image targets
+IMG ?= ghcr.io/arthursens/http-prober:main
+
 build: http-prober
 
 # Build api binary
@@ -11,3 +14,6 @@ fmt:
 # Run go vet against code
 vet:
 	go vet ./...
+
+docker-build:
+	docker build . -t ${IMG}
