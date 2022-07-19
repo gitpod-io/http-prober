@@ -35,6 +35,6 @@ jobs:
         uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8
         with:
           context: .
-          push: ${{ github.repository == 'arthursens/http-prober'}}
+          push: ${{ github.repository == 'gitpod-io/http-prober'}}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
