@@ -1,4 +1,4 @@
-module github.com/arthursens/http-prober
+module github.com/gitpod-io/http-prober
 
 go 1.18
 

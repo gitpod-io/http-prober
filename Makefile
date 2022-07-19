@@ -1,5 +1,5 @@
 # Image URL to use all building/pushing image targets
-IMG ?= ghcr.io/arthursens/http-prober:main
+IMG ?= ghcr.io/gitpod-io/http-prober:main
 
 build: http-prober
 

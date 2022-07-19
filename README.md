@@ -17,7 +17,7 @@ Or as a docker image:
 
 ```
 make docker-build
-docker run -p 8080:8080 ghcr.io/arthursens/http-prober:main
+docker run -p 8080:8080 ghcr.io/gitpod-io/http-prober:main
 ```
 
 ## Releasing
