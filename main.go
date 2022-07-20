@@ -41,6 +41,8 @@ var (
 )
 
 func init() {
+	// version.NewCollector(namespace) doesn't give us good information at the moment because our
+	// build pipeline doesn't pass version, nor commit SHA as build arguments
 	prometheus.MustRegister(version.NewCollector(namespace))
 	prometheus.MustRegister(requestsFailed)
 	prometheus.MustRegister(requestsDuration)
@@ -103,6 +105,10 @@ func Probe() error {
 		return fmt.Errorf("Failed request for url: %s", probeURL)
 	}
 	defer res.Body.Close()
+
+	if res.StatusCode > 299 {
+		requestsFailed.Inc()
+	}
 
 	level.Info(logger).Log("msg", "Probed", "url", probeURL, "code", res.StatusCode)
 	requestsDuration.Observe(duration)
